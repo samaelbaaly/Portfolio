@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Sama Fathi, Software Engineering student.">
+    <title>Sama Fathi | Software Engineering Student</title>
+
+    <!-- Fonts: a handwritten script for the name, a clean sans-serif for text.
+         If you are offline, the browser uses the fallback fonts in index.css. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- Reusable line drawings (defined once, used with <use>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <!-- A single leaf with a center vein -->
+            <g id="leaf"><path d="M0 0C18-14 40-14 56 0 40 14 18 14 0 0Z"/><path d="M0 0H56"/></g>
+            <!-- A seed ray (used to build the dandelion) -->
+            <g id="ray"><path d="M100 100Q116 70 100 38"/><circle cx="100" cy="35" r="3"/></g>
+        </defs>
+        <symbol id="branch" viewBox="0 0 240 420">
+            <path d="M120 415C105 340 150 290 118 215 92 150 128 90 112 20"/>
+            <use href="#leaf" transform="translate(124 340) rotate(-35)"/>
+            <use href="#leaf" transform="translate(122 310) rotate(-150)"/>
+            <use href="#leaf" transform="translate(131 270) rotate(-30)"/>
+            <use href="#leaf" transform="translate(123 232) rotate(-150)"/>
+            <use href="#leaf" transform="translate(112 190) rotate(-35)"/>
+            <use href="#leaf" transform="translate(110 150) rotate(-145)"/>
+            <use href="#leaf" transform="translate(118 110) rotate(-30)"/>
+            <use href="#leaf" transform="translate(114 70) rotate(-140)"/>
+        </symbol>
+        <symbol id="dandelion" viewBox="0 0 200 200">
+            <path d="M100 100Q104 150 96 200"/>
+            <use href="#ray"/>
+            <use href="#ray" transform="rotate(30 100 100)"/>
+            <use href="#ray" transform="rotate(60 100 100)"/>
+            <use href="#ray" transform="rotate(90 100 100)"/>
+            <use href="#ray" transform="rotate(120 100 100)"/>
+            <use href="#ray" transform="rotate(150 100 100)"/>
+            <use href="#ray" transform="rotate(180 100 100)"/>
+            <use href="#ray" transform="rotate(210 100 100)"/>
+            <use href="#ray" transform="rotate(240 100 100)"/>
+            <use href="#ray" transform="rotate(270 100 100)"/>
+            <use href="#ray" transform="rotate(300 100 100)"/>
+            <use href="#ray" transform="rotate(330 100 100)"/>
+        </symbol>
+    </svg>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a href="#home" class="logo">Sama</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home -->
+        <section id="home" class="hero">
+            <!-- Decorative artwork: soft shapes and line drawings -->
+            <div class="hero-art" aria-hidden="true">
+                <span class="blob blob-1"></span>
+                <span class="blob blob-2"></span>
+                <span class="blob blob-3"></span>
+                <svg class="art art-branch"><use href="#branch"/></svg>
+                <svg class="art art-dandelion"><use href="#dandelion"/></svg>
+                <span class="code-mark">&lt;/&gt;</span>
+            </div>
+
+            <div class="hero-content container">
+                <p class="hero-hello">Hi, I'm</p>
+                <h1>Sama</h1>
+                <h2>Software Engineering Student</h2>
+                <p class="hero-description">
+                    I am a passionate student exploring programming and web
+                    development. I enjoy learning new skills and turning ideas
+                    into reality through code.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">About me</a>
+                    <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="section container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I am a Software Engineering student interested in software
+                        development and technology. I am currently building my
+                        programming foundation and improving my problem-solving
+                        skills.
+                    </p>
+                    <p>
+                        My goal is to gain practical experience, work on
+                        meaningful projects, and continue growing as a developer.
+                    </p>
+                </div>
+                <dl class="panel facts">
+                    <div><dt>Name</dt><dd>Sama Fathi</dd></div>
+                    <div><dt>Studying</dt><dd>Software Engineering</dd></div>
+                    <div><dt>Learning</dt><dd>HTML, CSS, C++</dd></div>
+                    <div><dt>Interests</dt><dd>Software development and technology</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section container">
+            <h2 class="section-title">Skills</h2>
+            <p class="section-intro">The foundations I am learning right now.</p>
+            <ul class="skills-grid">
+                <li class="skill-card">
+                    <h3>HTML</h3>
+                </li>
+                <li class="skill-card">
+                    <h3>CSS</h3>
+                </li>
+                <li class="skill-card">
+                    <h3>C++</h3>
+                </li>
+                <li class="skill-card">
+                    <h3>Problem Solving</h3>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section container">
+            <h2 class="section-title">Projects</h2>
+            <div class="panel empty-state projects-empty-state">
+                <h3>Projects coming soon</h3>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section id="certificates" class="section container">
+            <h2 class="section-title">Certificates</h2>
+            <div class="certificates-grid">
+                <div class="panel certificate-card">
+                    <h3>HP LIFE Certificates</h3>
+                    <p>View my certificate from HP LIFE.</p>
+                    <a class="certificate-link" href="https://www.life-global.org/certificate/fc582d71-de37-4af9-aa25-d5ef979b028a" target="_blank" rel="noopener noreferrer">View first certificate &rarr;</a>
+                    <a class="certificate-link" href="https://www.life-global.org/certificate/01a43db2-2685-4d1d-8ef2-18db43cece83" target="_blank" rel="noopener noreferrer">View second certificate &rarr;</a>
+                </div>
+                <a class="panel certificate-card" href="https://cert.efset.org/en/p87Vmk" target="_blank" rel="noopener noreferrer">
+                    <h3>EF SET English Certificate</h3>
+                    <p>View my English certificate from EF SET.</p>
+                    <span class="certificate-link">View certificate &rarr;</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section container">
+            <h2 class="section-title">Contact</h2>
+            <div class="panel contact-card">
+                <p>
+                    Thank you for visiting my portfolio. Feel free to contact me
+                </p>
+                <a class="btn btn-primary" href="mailto:samaelbaaly@gmail.com">samaelbaaly@gmail.com</a>
+                <div class="contact-links" aria-label="Social profiles">
+                    <a class="btn btn-ghost" href="https://www.linkedin.com/in/sama-elbaaly-7a1836425" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="btn btn-ghost" href="https://github.com/samaelbaaly" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Sama Fathi. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

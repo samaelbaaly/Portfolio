@@ -1,0 +1,415 @@
+
+/* =========================================================
+   Portfolio styles - Sama Fathi
+   Sections: 1 Variables | 2 Base | 3 Header | 4 Hero
+             5 Sections | 6 Components | 7 Footer | 8 Responsive
+   ========================================================= */
+
+/* 1. VARIABLES: change colors and fonts here ------------- */
+:root {
+    --cream: #f6efe4;
+    --sand-100: #efe3d0;
+    --sand-200: #e2cfb0;
+    --camel: #c19a6b;
+    --camel-dark: #8a5d33;
+    --text: #3b2a1e;
+    --muted: #6e5744;
+    --line: rgba(138, 93, 51, 0.28);
+
+    --font-script: "Mrs Saint Delafield", "Brush Script MT", cursive;
+    --font-body: "Jost", "Segoe UI", system-ui, sans-serif;
+
+    /* Leaf-shaped corners echo the organic shapes of the reference */
+    --radius-leaf: 2.5rem 0.5rem 2.5rem 0.5rem;
+}
+
+/* 2. BASE ------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+a:focus-visible {
+    outline: 2px solid var(--camel-dark);
+    outline-offset: 4px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 3. HEADER ----------------------------------------------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(246, 239, 228, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 72px;
+}
+
+.logo {
+    font-family: var(--font-script);
+    font-size: 2.6rem;
+    line-height: 1;
+}
+
+.nav-links { display: flex; gap: 2rem; }
+
+.nav-links a {
+    position: relative;
+    padding: 0.25rem 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a::after {            /* underline that grows on hover */
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0; height: 1px;
+    background: var(--camel-dark);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--text); }
+.nav-links a:hover::after { width: 100%; }
+
+/* 4. HERO ------------------------------------------------- */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 72px);
+    overflow: hidden;
+    background: radial-gradient(ellipse at 80% 20%, var(--sand-100), var(--cream) 65%);
+}
+
+.hero-content { position: relative; z-index: 2; }
+
+.hero-hello { color: var(--camel-dark); font-size: 1.1rem; }
+
+.hero h1 {
+    font-family: var(--font-script);
+    font-weight: 400;
+    font-size: clamp(6rem, 17vw, 12rem);
+    line-height: 0.85;
+    margin: 0.5rem 0 1.25rem;
+}
+
+.hero h2 {
+    font-weight: 300;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: 0.04em;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    max-width: 34rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+/* Hero artwork (decorative only) */
+.hero-art {
+    position: absolute;
+    inset: 0 0 0 auto;
+    width: 55%;
+    z-index: 1;
+}
+
+.blob {
+    position: absolute;
+    background: linear-gradient(145deg, var(--sand-200), var(--sand-100));
+}
+
+.blob-1 {
+    top: -10%; right: -12%;
+    width: 78%; height: 70%;
+    border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+}
+
+.blob-2 {
+    top: 38%; right: 14%;
+    width: 40%; height: 34%;
+    background: var(--camel);
+    opacity: 0.35;
+    border-radius: 42% 58% 38% 62% / 52% 40% 60% 48%;
+}
+
+.blob-3 {
+    bottom: -12%; right: -6%;
+    width: 60%; height: 40%;
+    border-radius: 48% 52% 60% 40% / 60% 45% 55% 40%;
+}
+
+.art {
+    position: absolute;
+    fill: none;
+    stroke: var(--camel-dark);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.art-branch {
+    top: 6%; right: 26%;
+    width: 240px; height: 420px;
+    opacity: 0.75;
+    transform-origin: bottom center;
+    animation: sway 9s ease-in-out infinite alternate;
+}
+
+.art-dandelion {
+    bottom: 10%; right: 6%;
+    width: 150px; height: 150px;
+    opacity: 0.55;
+}
+
+.code-mark {
+    position: absolute;
+    top: 46%; right: 36%;
+    padding: 0.9rem 1.4rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--camel-dark);
+    font-size: 1.4rem;
+    background: rgba(246, 239, 228, 0.6);
+}
+
+@keyframes sway {
+    from { transform: rotate(-2deg); }
+    to   { transform: rotate(2deg); }
+}
+
+/* 5. SECTIONS --------------------------------------------- */
+.section {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+    scroll-margin-top: 72px;     /* keeps titles clear of the sticky header */
+}
+
+.section-title {
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 3.5rem; height: 1px;
+    margin-top: 1rem;
+    background: var(--camel-dark);
+}
+
+.section-intro {
+    color: var(--muted);
+    margin: -1rem 0 2rem;
+}
+
+/* About */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text p { max-width: 38rem; margin-bottom: 1.25rem; color: var(--muted); }
+
+.facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.facts div:last-child { border-bottom: 0; }
+.facts dt { color: var(--muted); }
+.facts dd { text-align: right; }
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 180px));
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill-card {
+    padding: 1.25rem;
+    background: var(--sand-100);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-leaf);
+    transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.skill-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--camel-dark);
+    background: var(--sand-200);
+}
+
+.skill-card h3 { font-weight: 400; font-size: 1.25rem; margin-bottom: 0.25rem; }
+.skill-card p { color: var(--muted); font-size: 0.95rem; }
+
+/* Certificates */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+}
+
+.certificate-card {
+    display: block;
+    transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.certificate-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--camel-dark);
+    background: var(--sand-200);
+}
+
+.certificate-card h3 { font-weight: 400; font-size: 1.25rem; margin-bottom: 0.5rem; }
+.certificate-card p { color: var(--muted); }
+.certificate-link { display: block; width: fit-content; margin-top: 1rem; color: var(--camel-dark); }
+
+/* 6. COMPONENTS ------------------------------------------- */
+.panel {
+    padding: 2rem;
+    background: linear-gradient(160deg, var(--sand-100), var(--cream));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-leaf);
+}
+
+.empty-state {
+    max-width: 640px;
+    text-align: center;
+    margin: 0 auto;
+    border-style: dashed;
+    padding: 3rem 2rem;
+}
+
+.projects-empty-state { padding: 1.25rem; }
+
+.empty-icon {
+    font-size: 2rem;
+    color: var(--camel-dark);
+    margin-bottom: 0.75rem;
+}
+
+.empty-icon-svg {
+    width: 44px; height: 44px;
+    margin-bottom: 0.75rem;
+    fill: none;
+    stroke: var(--camel-dark);
+    stroke-width: 1.5;
+    stroke-linejoin: round;
+}
+
+.empty-state h3 { font-weight: 400; font-size: 1.4rem; margin-bottom: 0.5rem; }
+.empty-state p { color: var(--muted); }
+
+.status {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.3rem 1rem;
+    border: 1px solid var(--camel-dark);
+    border-radius: 999px;
+    color: var(--camel-dark);
+    font-size: 0.9rem;
+}
+
+.contact-card { max-width: 640px; }
+.contact-card p { color: var(--muted); margin-bottom: 1.5rem; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid var(--camel-dark);
+    border-radius: 999px;
+    font-size: 0.98rem;
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--camel-dark); color: var(--cream); }
+.btn-primary:hover { background: var(--text); }
+.btn-ghost:hover { background: rgba(138, 93, 51, 0.12); }
+
+/* 7. FOOTER ----------------------------------------------- */
+.site-footer {
+    margin-top: 6rem;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* 8. RESPONSIVE ------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-art { width: 100%; opacity: 0.55; }   /* artwork sits behind the text */
+    .art-branch { right: 6%; }
+    .code-mark { right: 10%; }
+    .section { padding-top: 4.5rem; }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .navbar { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    .logo { font-size: 2.2rem; }
+    .nav-links {
+        width: 100%;
+        gap: 1.4rem;
+        overflow-x: auto;          /* menu scrolls sideways if it does not fit */
+        white-space: nowrap;
+        padding-bottom: 0.4rem;
+    }
+    .section { scroll-margin-top: 110px; }
+    .hero { min-height: auto; padding: 4rem 0; }
+    .art-branch { width: 160px; height: 280px; }
+    .art-dandelion, .code-mark { display: none; }
+    .panel, .empty-state { padding: 1.5rem; }
+    .btn { width: 100%; text-align: center; }
+}
+
+/* Respect visitors who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .art-branch { animation: none; }
+    * { transition: none !important; }
+}
